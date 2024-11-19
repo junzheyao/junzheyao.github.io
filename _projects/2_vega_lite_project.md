@@ -7,6 +7,7 @@ custom_js:
   - vega.min
   - vega-lite.min
   - vega-embed.min
+  - justcharts
 ---
 
 # Licenses Visualization Project HW6

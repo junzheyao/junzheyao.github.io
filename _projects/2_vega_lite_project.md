@@ -25,7 +25,7 @@ custom_js:
   The dataset was filtered to exclude null values in the 'Original Issue Date' column. Additionally, a new column, 'YearBin', was created by grouping years into 5-year bins using integer division and then grouping by these bins to calculate the count of licenses in each interval.
 
 - **Overlap with Homework 5:**  
-  This visualization extends the analysis from Homework #5 by adding an interactive slider to allow dynamic selection of the starting year. This makes the plot more interactive and customizable compared to the static chart in Homework #5.
+  This visualization extends the analysis from Homework 5 by adding an interactive slider to allow dynamic selection of the starting year. This makes the plot more interactive and customizable compared to the static chart in Homework 5.
 
 - **Interactivity:**  
   The slider interactivity allows users to dynamically filter the starting year, providing flexibility in focusing on specific time periods. This enhances the utility of the visualization, making it more engaging and informative for users.
@@ -33,7 +33,7 @@ custom_js:
 
 <vegachart schema-url="{{ site.baseurl }}/assets/json/licenses_over_time.json" style="width: 100%;"></vegachart>
 
----
+
 
 ## Analysis of Licenses by Status
 

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<!--
+  portfolYOU Jekyll theme by Youssef Raafat
+  Free for personal and commercial use under the MIT license
+  https://github.com/YoussefRaafatNasry/portfolYOU
+  Updates for JPN Fall 2024
+  FALL2024ID5427
+-->
+
+<html lang="en" class="h-100">
+
+<head>
+
+  
+  
+  
+
+  
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="License Dataset Visualizations">
+  <meta property="og:description" content="Visualizing license data using Altair.">
+  <meta property="og:image" content="assets/pngs/cars.png">
+
+  <title>License Dataset Visualizations</title>
+  <meta name="description" content="Visualizing license data using Altair.">
+
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  <!-- Theme style -->
+  <script src="/assets/js/theme.js"></script>
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.0/css/all.css">
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+
+  <!-- Animate CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+</head>
+
+<body class="h-100 d-flex flex-column">
+
+  <main class="flex-shrink-0 container mt-5">
+    <nav class="navbar navbar-expand-lg navbar-themed">
+
+  <a class="navbar-brand" href="/"><h5><b>IS445 Jekyll Template</b></h5></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-1x fa-bars text-themed"></i>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto"><a class="nav-item nav-link " href="/404.html"></a>
+
+      <a class="nav-item nav-link " href="/blog/tags">Tags</a>
+
+      <a class="nav-item nav-link active" href="/"></a>
+
+      <a class="nav-item nav-link " href="/online_cv_public-main/python_notebooks/"></a>
+
+      <a class="nav-item nav-link active" href="/projects/">Projects</a>
+
+      <a class="nav-item nav-link active" href="/projects/">Projects</a>
+
+      <a class="nav-item nav-link " href="/blog/">Blog</a>
+
+      <a class="nav-item nav-link " href="/blog/">Blog</a>
+
+      <a class="nav-item nav-link " href="/about/">About</a>
+
+      <a class="nav-item nav-link " href="/about/">About</a>
+
+      
+
+      <span id="theme-toggler" class="nav-item nav-link" role="button" onclick="toggleTheme()"></span>
+    </div>
+  </div>
+
+</nav>
+    <div class="col-lg-10 mx-auto mt-5 markdown-body">
+  <h1 id="licenses-visualization-project">Licenses Visualization Project</h1>
+
+<h2 id="analysis-of-licenses-issued-over-time">Analysis of Licenses Issued Over Time</h2>
+
+<ul>
+  <li><strong>Features Highlighted:</strong><br />
+This visualization shows the number of licenses issued over 5-year intervals to observe trends in licensing activity over time. Because the first half of the twentieth century had relatively small amount of licenses issued, the line chart includes an interactive slider that allows users to dynamically filter the starting year for the visualization, with a default set to 1910. This interactive feature helps users explore specific periods of interest while maintaining the broader trend’s visibility.</li>
+  <li>
+    <p><strong>Design Choices - Encodings:</strong><br />
+The temporal progression is displayed on the x-axis (<code class="language-plaintext highlighter-rouge">YearBin</code>) as ordinal data, while the y-axis (<code class="language-plaintext highlighter-rouge">Count</code>) shows the number of licenses issued in each 5-year interval. Tooltips are added to provide exact values for each data point when hovered over. A line chart with points was chosen to make temporal patterns and individual intervals clear and easy to read.</p>
+  </li>
+  <li>
+    <p><strong>Design Choices - Colormaps:</strong><br />
+No color encoding is used for this visualization as the focus is solely on the temporal trend, and color was not necessary to differentiate data points.</p>
+  </li>
+  <li>
+    <p><strong>Data Transformations:</strong><br />
+The dataset was filtered to exclude null values in the <code class="language-plaintext highlighter-rouge">Original Issue Date</code> column. Additionally, a new column, <code class="language-plaintext highlighter-rouge">YearBin</code>, was created by grouping years into 5-year bins using integer division and then grouping by these bins to calculate the count of licenses in each interval.</p>
+  </li>
+  <li>
+    <p><strong>Overlap with Homework #5:</strong><br />
+This visualization extends the analysis from Homework #5 by adding an interactive slider to allow dynamic selection of the starting year. This makes the plot more interactive and customizable compared to the static chart in Homework #5.</p>
+  </li>
+  <li><strong>Interactivity:</strong><br />
+The slider interactivity allows users to dynamically filter the starting year, providing flexibility in focusing on specific time periods. This enhances the utility of the visualization, making it more engaging and informative for users.</li>
+</ul>
+
+<vegachart schema-url="/assets/json/licenses_over_time.json" style="width: 100%;"></vegachart>
+
+<hr />
+
+<h2 id="analysis-of-licenses-by-status">Analysis of Licenses by Status</h2>
+
+<ul>
+  <li>
+    <p><strong>Features Highlighted:</strong><br />
+This bar chart visualizes the distribution of licenses by status, excluding ‘NOT RENEWED’, which dominates the data and could obscure insights into other categories. By focusing on active and inactive licenses, users can better understand the overall distribution and variability in license statuses.</p>
+  </li>
+  <li>
+    <p><strong>Design Choices - Encodings:</strong><br />
+The x-axis encodes the categorical variable <code class="language-plaintext highlighter-rouge">License Status</code> as ordinal data, sorted by descending count. The y-axis encodes the number of licenses (<code class="language-plaintext highlighter-rouge">Count</code>) as quantitative data. Tooltips are added to display exact counts for each status.</p>
+  </li>
+  <li>
+    <p><strong>Design Choices - Colormaps:</strong><br />
+No color encoding is used for this visualization as the focus is solely on the count of license status, and color was not necessary to differentiate the bars.</p>
+  </li>
+  <li>
+    <p><strong>Data Transformations:</strong><br />
+The dataset was filtered to exclude the ‘NOT RENEWED’ status for clarity. A <code class="language-plaintext highlighter-rouge">value_counts</code> operation was performed to calculate the count of each remaining license status, and the results were reset into a DataFrame for plotting.</p>
+  </li>
+  <li>
+    <p><strong>Overlap with Homework #5:</strong><br />
+ This visualization is based on what I have done for HW5</p>
+  </li>
+  <li>
+    <p><strong>Interactivity:</strong><br />
+Currently, this visualization does not include interactive elements.</p>
+  </li>
+</ul>
+
+<vegachart schema-url="/assets/json/licenses_by_status.json" style="width: 100%;"></vegachart>
+
+<hr />
+
+<h2 id="links-to-data--analysis">Links to Data &amp; Analysis</h2>
+
+<div class="left">
+<a class="m-1 btn btn-outline-primary btn-2 " href="https://github.com/UIUC-iSchool-DataViz/is445_data/raw/main/licenses_fall2022.csv">
+  The Data
+</a>
+</div>
+
+<div class="right">
+<a class="m-1 btn btn-outline-primary btn-2 " href="https://github.com/junzheyao/junzheyao.github.io/blob/main/python_notebooks/licenses_visualization.ipynb">
+  The Analysis
+</a>
+</div>
+
+</div>
+  </main>
+  <footer class="mt-auto py-3 text-center">
+
+  <small class="text-muted mb-2">
+    <i class="fas fa-code"></i> with <i class="fas fa-heart"></i>
+    by <strong>A. P. Corgi</strong>
+  </small>
+
+  <div class="container-fluid justify-content-center"><a class="social mx-1"  href="mailto:username@domain.com"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#db4437'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.github.com/jnaiman"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#333333'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.twitter.com/your_username"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#1da1f2'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-twitter fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.youtube.com/your_channel_name"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#ff0000'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-youtube fa-1x"></i>
+    </a>
+
+</div>
+
+  Theme by <a href="https://github.com/YoussefRaafatNasry/portfolYOU">portfolYOU</a> and <a href="https://github.com/4dcu-be/4dcu.be">4dcu.be</a>.
+
+  
+<!--<small id="attribution">
+    theme <a href="https://github.com/YoussefRaafatNasry/portfolYOU">portfolYOU</a>
+  </small>
+-->
+
+</footer>
+
+
+<!-- Custom page specific js files -->
+  
+    <script src='/assets/js/vega.min.js' type="text/javascript"></script>
+  
+    <script src='/assets/js/vega-lite.min.js' type="text/javascript"></script>
+  
+    <script src='/assets/js/vega-embed.min.js' type="text/javascript"></script>
+  
+
+
+
+  
+  <!-- GitHub Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- wow.js CDN & Activation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+<script> new WOW().init(); </script>
+
+<!-- Initialize all tooltips -->
+<script>
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+</body>
+
+<!--
+end of checks! JPN
+-->
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

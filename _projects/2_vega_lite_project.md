@@ -1,7 +1,7 @@
 ---
 name: License Dataset Visualizations
 tools: [Python, Vega-Lite, Altair, HTML]
-image: assets/pngs/cars.png
+# image: assets/pngs/cars.png
 description: Visualizing license data using Altair.
 custom_js:
   - vega.min

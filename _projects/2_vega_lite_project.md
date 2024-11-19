@@ -31,7 +31,7 @@ custom_js:
   The slider interactivity allows users to dynamically filter the starting year, providing flexibility in focusing on specific time periods. This enhances the utility of the visualization, making it more engaging and informative for users.
 
 
-<vegachart schema-url="https://github.com/junzheyao/junzheyao.github.io/blob/main/licenses_over_time.json" style="width: 100%;"></vegachart>
+<vegachart schema-url="{{ site.baseurl }}/licenses_over_time.json" style="width: 100%;"></vegachart>
 
 ---
 
@@ -55,7 +55,7 @@ custom_js:
 - **Interactivity:**  
   Currently, this visualization does not include interactive elements.
 
-<vegachart schema-url="https://github.com/junzheyao/junzheyao.github.io/blob/main/licenses_by_status.json" style="width: 100%;"></vegachart>
+<vegachart schema-url="{{ site.baseurl }}/licenses_by_status.json" style="width: 100%;"></vegachart>
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-name: License Dataset Visualizations
+name: License Dataset Visualizations HW6
 tools: [Python, Vega-Lite, Altair, HTML]
 # image: assets/pngs/cars.png
 description: Visualizing license data using Altair.
@@ -9,7 +9,7 @@ custom_js:
   - vega-embed.min
 ---
 
-# Licenses Visualization Project
+# Licenses Visualization Project HW6
 
 ## Analysis of Licenses Issued Over Time
 
@@ -57,7 +57,7 @@ custom_js:
 
 <vegachart schema-url="{{ site.baseurl }}/assets/json/licenses_by_status.json" style="width: 100%;"></vegachart>
 
----
+
 
 ## Links to Data & Analysis
 
